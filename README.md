@@ -23,3 +23,5 @@ Para rodar a aplicação, dentro do mesmo diretório raiz do projeto, bastar exe
 ```bash
 npm run dev
 ```
+
+Se tudo correr bem, a aplicação estará acessível em `http://localhost:3000`

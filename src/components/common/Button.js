@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { get } from "lodash";
+import PropTypes from "prop-types";
 
 const ButtonGhost = css`
   background: transparent;
@@ -13,7 +14,7 @@ const ButtonDefault = css`
     get(theme, `colors.${variant}.contrastText`)};
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
   border: 0;
   cursor: pointer;
   padding: 12px 26px;
@@ -27,3 +28,10 @@ export const Button = styled.button`
     opacity: 0.5;
   }
 `;
+
+Button.propTypes = {
+  ghost: PropTypes.bool,
+  variant: PropTypes.string.isRequired,
+};
+
+export default Button;

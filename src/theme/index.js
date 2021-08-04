@@ -1,3 +1,5 @@
+import { typographyStyle } from "./typographyStyle";
+
 const colors = {
   background: {
     light: {
@@ -42,6 +44,7 @@ const colors = {
 export default {
   colors,
   borderRadius: "8px",
+  typographyStyle,
   transition: "200ms ease-in-out",
   fontFamily: "'Rubik', sans-serif",
 };
