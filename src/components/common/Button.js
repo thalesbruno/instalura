@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { get } from "lodash";
 import PropTypes from "prop-types";
+import { textStyleVariantMap } from "../foundation/Text";
+import { breakpointsMedia } from "../../theme/utils/breakpointsMedia";
 
 const ButtonGhost = css`
   background: transparent;
@@ -27,6 +29,14 @@ const Button = styled.button`
   &:focus {
     opacity: 0.5;
   }
+  ${breakpointsMedia({
+    xs: css`
+      ${textStyleVariantMap.smallestException}
+    `,
+    md: css`
+      ${textStyleVariantMap.paragraph1}
+    `,
+  })}
 `;
 
 Button.propTypes = {

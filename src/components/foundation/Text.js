@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
-const textStyleVariantMap = {
+export const textStyleVariantMap = {
   title: css`
     font-size: ${({ theme }) => theme.typographyStyle.title.fontSize};
     font-weight: ${({ theme }) => theme.typographyStyle.title.fontWeight};
@@ -42,9 +42,9 @@ const TextBase = styled.span`
   ${({ variant }) => textStyleVariantMap[variant]}
 `;
 
-const Text = ({ tag, variant, children }) => {
+const Text = ({ tag, variant, children, ...props }) => {
   return (
-    <TextBase as={tag} variant={variant}>
+    <TextBase as={tag} variant={variant} {...props}>
       {children}
     </TextBase>
   );
