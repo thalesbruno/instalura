@@ -4,7 +4,6 @@ import { breakpointsMedia } from "./breakpointsMedia";
 export const propToStyle = (propName) => {
   return (props) => {
     const propValue = props[propName];
-    console.log(propValue);
     if (typeof propValue === "string") {
       return {
         [propName]: propValue,
