@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components";
 import { get } from "lodash";
 import PropTypes from "prop-types";
+
 import { textStyleVariantMap } from "../foundation/Text";
 import { breakpointsMedia } from "../../theme/utils/breakpointsMedia";
+import { propToStyle } from "../../theme/utils/propToStyle";
 
 const ButtonGhost = css`
   background: transparent;
@@ -37,6 +39,8 @@ const Button = styled.button`
       ${textStyleVariantMap.paragraph1}
     `,
   })}
+  ${propToStyle("display")}
+  ${propToStyle("margin")}
 `;
 
 Button.propTypes = {
