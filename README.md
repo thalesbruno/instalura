@@ -37,3 +37,10 @@ npm run dev
 ```
 
 Se tudo correr bem, a aplicação estará acessível em `http://localhost:3000`
+
+## Rodando ESLint
+
+Para validação do código com ESLint, é possível rodar o comando a seguir diretamente em um arquivo ou em um diretório:
+```bash
+yarn run eslint <directory or file>
+```
