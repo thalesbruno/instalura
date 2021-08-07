@@ -9,6 +9,10 @@ Para instalar a aplicação, primeiro é necessário fazer o clone do projeto:
 ```bash
 git clone https://github.com/thalesbruno/instalura
 ```
+ou
+```bash
+git clone git@github.com:thalesbruno/instalura.git
+```
 
 Agora, dentro do diretório `instalura`, vamos instalar as dependências usando `yarn` ou `npm`:
 
