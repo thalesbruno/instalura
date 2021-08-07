@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react';
 
-const Sobre = () => {
-  return <div>Sobre</div>;
-};
+const Sobre = () => <div>Sobre</div>;
 
 export default Sobre;

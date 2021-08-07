@@ -1,7 +1,7 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import PropTypes from "prop-types";
-import { propToStyle } from "../../theme/utils/propToStyle";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import propToStyle from '../../theme/utils/propToStyle';
 
 export const textStyleVariantMap = {
   title: css`
@@ -30,36 +30,34 @@ export const textStyleVariantMap = {
     line-height: ${({ theme }) => theme.typographyStyle.paragraph2.lineHeight};
   `,
   smallestException: css`
-    font-size: ${({ theme }) =>
-      theme.typographyStyle.smallestException.fontSize};
-    font-weight: ${({ theme }) =>
-      theme.typographyStyle.smallestException.fontWeight};
-    line-height: ${({ theme }) =>
-      theme.typographyStyle.smallestException.lineHeight};
+    font-size: ${({ theme }) => theme.typographyStyle.smallestException.fontSize};
+    font-weight: ${({ theme }) => theme.typographyStyle.smallestException.fontWeight};
+    line-height: ${({ theme }) => theme.typographyStyle.smallestException.lineHeight};
   `,
 };
 
 const TextBase = styled.span`
   ${({ variant }) => textStyleVariantMap[variant]}
-  ${propToStyle("textAlign")}
+  ${propToStyle('textAlign')}
 `;
 
-const Text = ({ tag, variant, children, ...props }) => {
-  return (
-    <TextBase as={tag} variant={variant} {...props}>
-      {children}
-    </TextBase>
-  );
-};
+const Text = ({
+  tag, variant, children, ...props
+}) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <TextBase as={tag} variant={variant} {...props}>
+    {children}
+  </TextBase>
+);
 
 Text.defaultProps = {
-  tag: "a",
-  variant: "paragraph1",
+  tag: 'a',
+  variant: 'paragraph1',
 };
 
 Text.propTypes = {
-  tag: PropTypes.string.isRequired,
-  variant: PropTypes.string.isRequired,
+  tag: PropTypes.string,
+  variant: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 

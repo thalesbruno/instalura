@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
-import { breakpointsMedia } from "../../theme/utils/breakpointsMedia";
-import { textStyleVariantMap } from "../foundation/Text";
+import styled, { css } from 'styled-components';
+import breakpointsMedia from '../../theme/utils/breakpointsMedia';
+import { textStyleVariantMap } from '../foundation/Text';
 
-export const MenuWrapper = styled.nav`
+const MenuWrapper = styled.nav`
   font-family: "Rubik", sans-serif;
   display: flex;
   align-items: center;
@@ -81,13 +81,13 @@ MenuWrapper.CenterSide = styled.div`
     color: #88989e;
     transition: 200ms ease-in-out;
     ${breakpointsMedia({
-      xs: css`
+    xs: css`
         ${textStyleVariantMap.smallestException}
       `,
-      md: css`
+    md: css`
         ${textStyleVariantMap.paragraph1}
       `,
-    })}
+  })}
     &:hover,
     &:focus {
       font-weight: 500;
@@ -109,3 +109,5 @@ MenuWrapper.RightSide = styled.div`
     `,
   })}
 `;
+
+export default MenuWrapper;
