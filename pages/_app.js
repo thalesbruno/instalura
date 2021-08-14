@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
-import theme from '../src/theme';
+import { ThemeDark, ThemeLight } from '../src/theme';
 import GlobalStyle from '../src/theme/GlobalStyle';
 
 export default function App({ Component, pageProps }) {
+  const [theme, setTheme] = useState('light');
+
   return (
     <>
       <Head>
@@ -18,11 +20,13 @@ export default function App({ Component, pageProps }) {
         />
         <link rel="shortcut icon" href="/images/favicon.ico" />
       </Head>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme === 'light' ? ThemeLight : ThemeDark}>
         <GlobalStyle />
         <Component
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...pageProps}
+          theme={theme}
+          setTheme={setTheme}
         />
       </ThemeProvider>
     </>

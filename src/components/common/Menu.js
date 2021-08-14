@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Logo from '../../theme/Logo';
 import Button from './Button';
 import Text from '../foundation/Text';
 import MenuWrapper from './MenuWrapper';
+import { IconTheme, ThemeButton } from '../../theme/ThemeButton';
 
-const Menu = () => {
+const Menu = ({ theme, setTheme }) => {
   const links = [
     {
       texto: 'Home',
@@ -20,6 +22,9 @@ const Menu = () => {
       url: '/sobre',
     },
   ];
+
+  const toggleTheme = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
+
   return (
     <MenuWrapper>
       <MenuWrapper.LeftSide>
@@ -36,6 +41,7 @@ const Menu = () => {
         ))}
       </MenuWrapper.CenterSide>
       <MenuWrapper.RightSide>
+        <ThemeButton onClick={toggleTheme}><IconTheme theme={theme} /></ThemeButton>
         <Button ghost variant="secondary.main">
           Entrar
         </Button>
@@ -43,6 +49,11 @@ const Menu = () => {
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );
+};
+
+Menu.propTypes = {
+  theme: PropTypes.string.isRequired,
+  setTheme: PropTypes.func.isRequired,
 };
 
 export default Menu;

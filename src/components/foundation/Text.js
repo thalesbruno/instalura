@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+import { get } from 'lodash';
 import propToStyle from '../../theme/utils/propToStyle';
 
 export const textStyleVariantMap = {
@@ -39,13 +40,14 @@ export const textStyleVariantMap = {
 const TextBase = styled.span`
   ${({ variant }) => textStyleVariantMap[variant]}
   ${propToStyle('textAlign')}
+  color: ${({ color, theme }) => get(theme, `colors.${color}.color`)};
 `;
 
 const Text = ({
-  tag, variant, children, ...props
+  tag, variant, children, color, ...props
 }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <TextBase as={tag} variant={variant} {...props}>
+  <TextBase color={color} as={tag} variant={variant} {...props}>
     {children}
   </TextBase>
 );
@@ -53,12 +55,14 @@ const Text = ({
 Text.defaultProps = {
   tag: 'a',
   variant: 'paragraph1',
+  color: '#000',
 };
 
 Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.node.isRequired,
+  color: PropTypes.number,
 };
 
 export default Text;

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Text from '../foundation/Text';
+
 const FooterWrapper = styled.footer`
   padding: 14px;
   display: flex;
@@ -33,13 +35,13 @@ const Footer = (props) => (
         alt="Logo Alura"
       />
     </a>
-    <p>
+    <Text as="p" variant="paragraph1" color="tertiary.main">
       Orgulhosamente criado durante o
       {' '}
       <a href="https://www.alura.com.br/">
         <span>Bootcamp Alura JAM Stack</span>
       </a>
-    </p>
+    </Text>
   </FooterWrapper>
 );
 

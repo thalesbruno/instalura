@@ -1,12 +1,25 @@
 import typographyStyle from './typographyStyle';
-import colors from './colors';
+import { colorsLight, colorsDark } from './colors';
 import breakpoints from './breakpoints';
 
-export default {
-  colors,
+const borderRadius = '8px';
+const transition = '200ms ease-in-out';
+const fontFamily = "'Rubik', sans-serif";
+
+export const ThemeLight = {
+  colors: colorsLight,
   typographyStyle,
   breakpoints,
-  borderRadius: '8px',
-  transition: '200ms ease-in-out',
-  fontFamily: "'Rubik', sans-serif",
+  borderRadius,
+  transition,
+  fontFamily,
+};
+
+export const ThemeDark = {
+  colors: colorsDark,
+  typographyStyle,
+  breakpoints,
+  borderRadius,
+  transition,
+  fontFamily,
 };

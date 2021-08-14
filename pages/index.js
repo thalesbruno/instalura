@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Button from '../src/components/common/Button';
 import Footer from '../src/components/common/Footer';
@@ -7,7 +8,7 @@ import Text from '../src/components/foundation/Text';
 import Grid from '../src/components/layout/Grid';
 import Box from '../src/components/layout/Box';
 
-export default function Home() {
+export default function Home({ theme, setTheme }) {
   return (
     <Box
       flex={1}
@@ -15,11 +16,12 @@ export default function Home() {
       flexWrap="wrap"
       flexDirection="column"
       justifyContent="space-between"
-      backgroundImage="url(/images/bubbles.svg)"
+      // backgroundImage="url(/images/bubbles.svg)"
+      backgroundImage={theme === 'light' ? 'url(/images/bubbles.svg)' : 'url(/images/bubbles_dark.svg)'}
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-      <Menu />
+      <Menu theme={theme} setTheme={setTheme} />
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
           <Grid.Col
@@ -35,6 +37,7 @@ export default function Home() {
                 tag="h1"
                 variant="title"
                 textAlign={{ xs: 'center', md: 'left' }}
+                color="tertiary.main"
               >
                 Compartilhe momentos e conecte-se com amigos
               </Text>
@@ -42,6 +45,7 @@ export default function Home() {
                 tag="p"
                 variant="paragraph2"
                 textAlign={{ xs: 'center', md: 'left' }}
+                color="tertiary.main"
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industrys standard dummy text
@@ -72,3 +76,8 @@ export default function Home() {
     </Box>
   );
 }
+
+Home.propTypes = {
+  theme: PropTypes.string.isRequired,
+  setTheme: PropTypes.func.isRequired,
+};
