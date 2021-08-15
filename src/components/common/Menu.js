@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Logo from '../../theme/Logo';
 import Button from './Button';
 import Text from '../foundation/Text';
 import MenuWrapper from './MenuWrapper';
 import { IconTheme, ThemeButton } from '../../theme/ThemeButton';
 
-const Menu = ({ theme, setTheme }) => {
+const Menu = ({
+  theme, setTheme, isModalOpen, setIsModalOpen,
+}) => {
   const links = [
     {
       texto: 'Home',
@@ -45,7 +46,7 @@ const Menu = ({ theme, setTheme }) => {
         <Button ghost variant="secondary.main">
           Entrar
         </Button>
-        <Button variant="primary.main">Cadastrar</Button>
+        <Button onClick={() => setIsModalOpen(!isModalOpen)} variant="primary.main">Cadastrar</Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );
@@ -54,6 +55,8 @@ const Menu = ({ theme, setTheme }) => {
 Menu.propTypes = {
   theme: PropTypes.string.isRequired,
   setTheme: PropTypes.func.isRequired,
+  isModalOpen: PropTypes.bool.isRequired,
+  setIsModalOpen: PropTypes.func.isRequired,
 };
 
 export default Menu;

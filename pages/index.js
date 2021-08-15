@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
 import Button from '../src/components/common/Button';
 import Footer from '../src/components/common/Footer';
 import Menu from '../src/components/common/Menu';
 import Text from '../src/components/foundation/Text';
 import Grid from '../src/components/layout/Grid';
 import Box from '../src/components/layout/Box';
+import Modal from '../src/components/common/Modal';
 
 export default function Home({ theme, setTheme }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <Box
       flex={1}
@@ -16,12 +18,30 @@ export default function Home({ theme, setTheme }) {
       flexWrap="wrap"
       flexDirection="column"
       justifyContent="space-between"
-      // backgroundImage="url(/images/bubbles.svg)"
       backgroundImage={theme === 'light' ? 'url(/images/bubbles.svg)' : 'url(/images/bubbles_dark.svg)'}
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-      <Menu theme={theme} setTheme={setTheme} />
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      >
+        {(propsDoModal) => (
+          <Box
+            backgroundColor="white"
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...propsDoModal}
+          >
+            Formulário de Cadastro
+          </Box>
+        )}
+      </Modal>
+      <Menu
+        theme={theme}
+        setTheme={setTheme}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
           <Grid.Col
@@ -52,6 +72,7 @@ export default function Home({ theme, setTheme }) {
                 ever since the 1500s.
               </Text>
               <Button
+                onClick={() => setIsModalOpen(!isModalOpen)}
                 margin={{
                   xs: 'auto',
                   md: 'initial',

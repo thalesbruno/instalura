@@ -62,7 +62,7 @@ Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.node.isRequired,
-  color: PropTypes.number,
+  color: PropTypes.string,
 };
 
 export default Text;
