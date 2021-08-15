@@ -25,9 +25,16 @@ const Button = styled.button`
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: opacity ${({ theme }) => theme.transition};
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)};
+  ${({ fullWidth }) => fullWidth && css`
+    width: 100%;
+  `}
   &:hover,
   &:focus {
     opacity: 0.5;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .2;
   }
   ${breakpointsMedia({
     xs: css`

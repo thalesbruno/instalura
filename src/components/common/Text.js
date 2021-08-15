@@ -56,12 +56,13 @@ Text.defaultProps = {
   tag: 'a',
   variant: 'paragraph1',
   color: '#000',
+  children: null,
 };
 
 Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   color: PropTypes.string,
 };
 

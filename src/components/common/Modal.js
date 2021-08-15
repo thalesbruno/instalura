@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
@@ -11,13 +11,12 @@ const ModalWrapper = styled.div`
   left: 0;
   right: 0;
   display: flex;
-  /* flex-direction: column;   */
-  /* justify-content: flex-end; */
+  flex-direction: column;  
+  justify-content: flex-end;
   z-index: 10;
   align-items: stretch;
   margin: auto;
   overflow: scroll;
-  /* transition: .3s; */
   ${({ isOpen }) => {
     if (isOpen) {
       return css`
@@ -32,6 +31,12 @@ const ModalWrapper = styled.div`
   }}
 `;
 
+const LockScroll = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+`;
+
 const Modal = ({ isOpen, onClose, children }) => (
   <ModalWrapper
     isOpen={isOpen}
@@ -42,6 +47,7 @@ const Modal = ({ isOpen, onClose, children }) => (
       }
     }}
   >
+    {isOpen && <LockScroll />}
     <motion.div
       variants={{
         hidden: {
