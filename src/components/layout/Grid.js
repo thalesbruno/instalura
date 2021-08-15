@@ -39,6 +39,10 @@ const Row = styled.div`
   flex-wrap: wrap;
   margin-right: -16px;
   margin-left: -16px;
+  ${propToStyle('marginLeft')}
+  ${propToStyle('marginRight')}
+  ${propToStyle('flex')}
+  ${propToStyle('justifyContent')}
 `;
 
 const Col = styled.div`
@@ -51,6 +55,8 @@ const Col = styled.div`
   ${propToStyle('flexDirection')}
   ${propToStyle('alignItems')}
   ${propToStyle('justifyContent')}
+  ${propToStyle('flex')}
+  ${propToStyle('paddingRight')}
 
   ${({ value }) => {
     if (typeof value === 'number') {
