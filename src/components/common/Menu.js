@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../../theme/Logo';
 import Button from './Button';
-import Text from '../foundation/Text';
+import Text from './Text';
 import MenuWrapper from './MenuWrapper';
 import { IconTheme, ThemeButton } from '../../theme/ThemeButton';
 

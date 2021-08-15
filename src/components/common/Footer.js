@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Text from '../foundation/Text';
+import Text from './Text';
 
 const FooterWrapper = styled.footer`
   padding: 14px;

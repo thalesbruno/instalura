@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../src/components/common/Button';
 import Footer from '../src/components/common/Footer';
 import Menu from '../src/components/common/Menu';
-import Text from '../src/components/foundation/Text';
+import Text from '../src/components/common/Text';
 import Grid from '../src/components/layout/Grid';
 import Box from '../src/components/layout/Box';
 import Modal from '../src/components/common/Modal';
@@ -28,6 +28,7 @@ export default function Home({ theme, setTheme }) {
       >
         {(propsDoModal) => (
           <Box
+            width="45vh"
             backgroundColor="white"
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...propsDoModal}
