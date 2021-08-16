@@ -44,3 +44,19 @@ Para validação do código com ESLint, é possível rodar o comando a seguir di
 ```bash
 yarn run eslint <directory or file>
 ```
+
+## Docker
+
+Para rodar o projeto no Docker, após fazer o `git clone` do projeto, no diretório raiz `instalura` fazer build da imagem
+
+```shell
+docker build . -t next-instalura
+```
+
+E subir o container
+
+```shell
+docker run -p 3000:3000 next-instalura
+```
+
+Acessar a aplicação em `http://localhost:3000`
