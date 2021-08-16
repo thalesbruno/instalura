@@ -14,6 +14,10 @@ const Box = styled.div`
   ${propToStyle('width')}
   ${propToStyle('boxShadow')}
   ${propToStyle('padding')}
+  ${propToStyle('alignItems')}
+  ${propToStyle('position')}
+  ${propToStyle('top')}
+  ${propToStyle('right')}
 `;
 
 export default Box;

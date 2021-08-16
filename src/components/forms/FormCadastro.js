@@ -5,6 +5,7 @@ import Box from '../layout/Box';
 import Text from '../common/Text';
 import Button from '../common/Button';
 import TextField from './TextField';
+import CloseButton from '../../theme/icons/CloseButton';
 
 const FormContent = () => {
   const [userInfo, setUserInfo] = useState({
@@ -76,6 +77,7 @@ const FormCadastro = ({ propsDoModal }) => (
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...propsDoModal}
       >
+        <CloseButton onClose={propsDoModal.onClose} />
         <FormContent />
       </Box>
 
