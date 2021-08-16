@@ -30,7 +30,7 @@ const FormContent = () => {
       <Text
         variant="title"
         tag="h1"
-        color="tertiary.main"
+        color="#000"
       >
         Pronto para saber da vida dos outros?
       </Text>
