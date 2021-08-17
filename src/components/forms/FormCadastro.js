@@ -7,6 +7,7 @@ import Text from '../common/Text';
 import Button from '../common/Button';
 import TextField from './TextField';
 import CloseButton from '../../theme/icons/CloseButton';
+import Alert from '../common/Alert';
 
 const Loading = styled.div`
   animation: flash 3s;
@@ -59,9 +60,6 @@ const FormContent = () => {
       })
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
-    // .finally(() => {
-    //   setSubmitStatus(submitStates.DEFAULT);
-    // });
   };
 
   return (
@@ -84,8 +82,8 @@ const FormContent = () => {
         Você está a um passo de saber tudoo que está
         rolando no bairro, complete seu cadastro agora!
       </Text>
-      { submitStatus === submitStates.DONE && <p>Usuário cadastrado com sucesso!</p> }
-      { submitStatus === submitStates.ERROR && <p>Erro ao cadastrar o usuário.</p> }
+      { submitStatus === submitStates.DONE && <Alert onClose={() => setSubmitStatus(submitStates.DEFAULT)} type="success">Usuário cadastrado com sucesso!</Alert> }
+      { submitStatus === submitStates.ERROR && <Alert onClose={() => setSubmitStatus(submitStates.DEFAULT)} type="danger">Erro ao cadastrar o usuário.</Alert> }
       { submitStatus === submitStates.LOADING && <Loading>Aguarde um momento...</Loading> }
       <TextField placeholder="Username" name="username" value={userInfo.username} onChange={handleChange} />
       <TextField placeholder="Nome" name="name" value={userInfo.name} onChange={handleChange} />
@@ -121,7 +119,7 @@ const FormCadastro = ({ propsDoModal }) => (
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...propsDoModal}
       >
-        <CloseButton onClose={propsDoModal.onClose} />
+        <CloseButton onClose={propsDoModal.onClose} position="absolute" />
         <FormContent />
       </Box>
 

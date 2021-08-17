@@ -36,6 +36,20 @@ export const colorsLight = {
       color: '#000000',
     },
   },
+  alerts: {
+    success: {
+      color: '#5cb85c',
+    },
+    danger: {
+      color: '#ff4444',
+    },
+    warning: {
+      color: '##ffbb33',
+    },
+    text: {
+      color: '#fff',
+    },
+  },
 };
 
 export const colorsDark = {
@@ -74,6 +88,20 @@ export const colorsDark = {
   svg: {
     main: {
       color: '#FFFFFF',
+    },
+  },
+  alerts: {
+    success: {
+      color: '#5cb85c',
+    },
+    danger: {
+      color: '#ff4444',
+    },
+    warning: {
+      color: '##ffbb33',
+    },
+    text: {
+      color: '#fff',
     },
   },
 };

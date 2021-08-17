@@ -2,10 +2,11 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import breakpointsMedia from '../utils/breakpointsMedia';
+import propToStyle from '../utils/propToStyle';
 
 const CloseIcon = styled.svg`
   cursor: pointer;
-  position: absolute;
+  ${propToStyle('position')};
   top: 5%;
   ${breakpointsMedia({
     xs: css`
@@ -17,8 +18,10 @@ const CloseIcon = styled.svg`
   })}
 `;
 
-const CloseButton = ({ onClose }) => (
+const CloseButton = ({ onClose, ...props }) => (
   <CloseIcon
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...props}
     width="14"
     height="14"
     viewBox="0 0 14 14"
