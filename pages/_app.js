@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { ThemeDark, ThemeLight } from '../src/theme';
 import GlobalStyle from '../src/theme/GlobalStyle';
+import Animations from '../src/theme/animations';
 
 export default function App({ Component, pageProps }) {
   const [theme, setTheme] = useState('light');
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <ThemeProvider theme={theme === 'light' ? ThemeLight : ThemeDark}>
         <GlobalStyle />
+        <Animations />
         <Component
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...pageProps}
