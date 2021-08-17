@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Grid from '../layout/Grid';
 import Box from '../layout/Box';
 import Text from '../common/Text';
@@ -7,11 +8,28 @@ import Button from '../common/Button';
 import TextField from './TextField';
 import CloseButton from '../../theme/icons/CloseButton';
 
+const Loading = styled.div`
+  animation: flash 3s;
+  -webkit-animation: flash 3s;
+  margin-bottom: 10px;
+`;
+
 const FormContent = () => {
   const [userInfo, setUserInfo] = useState({
-    email: '',
-    usuario: '',
+    username: '',
+    name: '',
   });
+
+  const submitStates = {
+    DEFAULT: 'DEFAULT',
+    LOADING: 'LOADING',
+    DONE: 'DONE',
+    ERROR: 'ERROR',
+  };
+
+  const [submitStatus, setSubmitStatus] = useState(submitStates.DEFAULT);
+
+  const isFormInvalid = userInfo.username.length === 0 || userInfo.name.length === 0;
 
   const handleChange = (event) => {
     const inputField = event.target.getAttribute('name');
@@ -21,11 +39,34 @@ const FormContent = () => {
     });
   };
 
-  const isFormInvalid = userInfo.email.length === 0 || userInfo.usuario.length === 0;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmitStatus(submitStates.LOADING);
+    fetch('https://instalura-api.vercel.app/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username: userInfo.username, name: userInfo.name }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          setSubmitStatus(submitStates.ERROR);
+          throw new Error('Erro ao realizar o cadastro');
+        }
+        setSubmitStatus(submitStates.DONE);
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+    // .finally(() => {
+    //   setSubmitStatus(submitStates.DEFAULT);
+    // });
+  };
 
   return (
     <form
-      onSubmit={(event) => event.preventDefault()}
+      onSubmit={handleSubmit}
     >
       <Text
         variant="title"
@@ -43,8 +84,11 @@ const FormContent = () => {
         Você está a um passo de saber tudoo que está
         rolando no bairro, complete seu cadastro agora!
       </Text>
-      <TextField placeholder="Email" name="email" value={userInfo.email} onChange={handleChange} />
-      <TextField placeholder="Usuário" name="usuario" value={userInfo.usuario} onChange={handleChange} />
+      { submitStatus === submitStates.DONE && <p>Usuário cadastrado com sucesso!</p> }
+      { submitStatus === submitStates.ERROR && <p>Erro ao cadastrar o usuário.</p> }
+      { submitStatus === submitStates.LOADING && <Loading>Aguarde um momento...</Loading> }
+      <TextField placeholder="Username" name="username" value={userInfo.username} onChange={handleChange} />
+      <TextField placeholder="Nome" name="name" value={userInfo.name} onChange={handleChange} />
       <Button variant="primary.main" type="submit" disabled={isFormInvalid} fullWidth>Cadastrar</Button>
     </form>
   );
