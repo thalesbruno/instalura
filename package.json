@@ -5,10 +5,12 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
-    "lint": "eslint --ignore-path .gitignore ."
+    "lint": "eslint --ignore-path .gitignore .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "framer-motion": "^4.1.17",
+    "husky": "^7.0.1",
     "lodash": "^4.17.21",
     "next": "latest",
     "prop-types": "^15.7.2",
