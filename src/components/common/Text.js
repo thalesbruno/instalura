@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import propToStyle from '../../theme/utils/propToStyle';
+import Link from './Link';
 
 export const textStyleVariantMap = {
   title: css`
@@ -44,12 +45,31 @@ const TextBase = styled.span`
 `;
 
 const Text = ({
-  tag, variant, children, color, ...props
+  tag,
+  variant,
+  children,
+  color,
+  href,
+  ...props
 }) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <TextBase color={color} as={tag} variant={variant} {...props}>
-    {children}
-  </TextBase>
+  href ? (
+    <TextBase
+      color={color}
+      as={Link}
+      variant={variant}
+      href={href}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    >
+      {children}
+    </TextBase>
+  )
+    : (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+      <TextBase color={color} as={tag} variant={variant} {...props}>
+        {children}
+      </TextBase>
+    )
 );
 
 Text.defaultProps = {
@@ -57,6 +77,7 @@ Text.defaultProps = {
   variant: 'paragraph1',
   color: '#000',
   children: null,
+  href: undefined,
 };
 
 Text.propTypes = {
@@ -64,6 +85,7 @@ Text.propTypes = {
   variant: PropTypes.string,
   children: PropTypes.node,
   color: PropTypes.string,
+  href: PropTypes.string,
 };
 
 export default Text;
