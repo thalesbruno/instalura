@@ -54,9 +54,14 @@ const Menu = ({
   );
 };
 
+Menu.defaultProps = {
+  theme: undefined,
+  setTheme: null,
+};
+
 Menu.propTypes = {
-  theme: PropTypes.string.isRequired,
-  setTheme: PropTypes.func.isRequired,
+  theme: PropTypes.string,
+  setTheme: PropTypes.func,
   isModalOpen: PropTypes.bool.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
 };
