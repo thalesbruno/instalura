@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-
 import { ThemeDark, ThemeLight } from '../src/theme';
 import GlobalStyle from '../src/theme/GlobalStyle';
 import Animations from '../src/theme/animations';

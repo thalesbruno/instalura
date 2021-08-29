@@ -17,6 +17,10 @@ export const ThemeButton = styled.button`
 
 export const IconTheme = ({ theme }) => (theme === 'light' ? <Moon /> : <Sun />);
 
+IconTheme.defaultProps = {
+  theme: undefined,
+};
+
 IconTheme.propTypes = {
-  theme: PropTypes.string.isRequired,
+  theme: PropTypes.string,
 };
