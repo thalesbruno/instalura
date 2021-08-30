@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { ThemeDark, ThemeLight } from '../src/theme';
-import GlobalStyle from '../src/theme/GlobalStyle';
-import Animations from '../src/theme/animations';
-import SEO from '../src/components/common/SEO';
 
 export default function App({ Component, pageProps }) {
-  const [theme, setTheme] = useState('light');
-
   return (
     <>
       <Head>
@@ -20,17 +13,8 @@ export default function App({ Component, pageProps }) {
         />
         <link rel="shortcut icon" href="/images/favicon.ico" />
       </Head>
-      <SEO />
-      <ThemeProvider theme={theme === 'light' ? ThemeLight : ThemeDark}>
-        <GlobalStyle />
-        <Animations />
-        <Component
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...pageProps}
-          theme={theme}
-          setTheme={setTheme}
-        />
-      </ThemeProvider>
+      { /* eslint-disable-next-line react/jsx-props-no-spreading */ }
+      <Component {...pageProps} />
     </>
   );
 }

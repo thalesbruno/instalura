@@ -6,7 +6,7 @@ import Box from '../layout/Box';
 import Text from '../common/Text';
 import Button from '../common/Button';
 import TextField from './TextField';
-import CloseButton from '../../theme/icons/CloseButton';
+import CloseButton from '../../styles/icons/CloseButton';
 import Alert from '../common/Alert';
 
 const Loading = styled.div`

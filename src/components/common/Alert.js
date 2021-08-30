@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { get } from 'lodash';
 import Text from './Text';
-import CloseButton from '../../theme/icons/CloseButton';
+import CloseButton from '../../styles/icons/CloseButton';
 
 const AlertWrapper = styled.div`
   background-color: ${({ theme, type }) => get(theme, `colors.alerts.${type}.color`)};

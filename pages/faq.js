@@ -1,8 +1,5 @@
-import React from 'react';
-import FAQScreen from '../../src/components/screens/FAQScreen';
-
-// eslint-disable-next-line react/jsx-props-no-spreading
-const FAQPage = (props) => (<FAQScreen {...props} />);
+import FAQScreen from '../src/components/screens/FAQScreen';
+import websitePageHOC from '../src/contexts/hoc';
 
 export const getStaticProps = async () => {
   const response = await fetch('https://instalura-api.vercel.app/api/content/faq');
@@ -21,4 +18,6 @@ export const getStaticProps = async () => {
   };
 };
 
-export default FAQPage;
+export default websitePageHOC(FAQScreen, {
+  pageWrapperProps: {},
+});
