@@ -4,8 +4,8 @@ import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
 import { textStyleVariantMap } from './Text';
-import breakpointsMedia from '../../theme/utils/breakpointsMedia';
-import propToStyle from '../../theme/utils/propToStyle';
+import breakpointsMedia from '../../styles/utils/breakpointsMedia';
+import propToStyle from '../../styles/utils/propToStyle';
 import Link from './Link';
 
 const ButtonGhost = css`

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Logo from '../../theme/Logo';
+import Logo from '../../styles/Logo';
 import Button from './Button';
 import MenuWrapper from './MenuWrapper';
-import { IconTheme, ThemeButton } from '../../theme/ThemeButton';
+// import { IconTheme, ThemeButton } from '../../styles/ThemeButton';
 import Text from './Text';
 
 const Menu = ({
-  theme, setTheme, isModalOpen, setIsModalOpen,
+  isModalOpen, setIsModalOpen,
 }) => {
   const links = [
     {
@@ -27,7 +27,7 @@ const Menu = ({
     },
   ];
 
-  const toggleTheme = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
+  // const toggleTheme = () => (setIsDarkTheme(!isDarkTheme));
 
   return (
     <MenuWrapper>
@@ -44,8 +44,10 @@ const Menu = ({
         ))}
       </MenuWrapper.CenterSide>
       <MenuWrapper.RightSide>
-        <ThemeButton onClick={toggleTheme}><IconTheme theme={theme} /></ThemeButton>
-        <Button href="/app/login" ghost variant="secondary.main">
+        {/* <ThemeButton onClick={toggleTheme}>
+          <IconTheme isDarkTheme={isDarkTheme} />
+        </ThemeButton> */}
+        <Button href="/login" ghost variant="secondary.main">
           Entrar
         </Button>
         <Button onClick={() => setIsModalOpen(!isModalOpen)} variant="primary.main">Cadastrar</Button>
@@ -54,14 +56,7 @@ const Menu = ({
   );
 };
 
-Menu.defaultProps = {
-  theme: undefined,
-  setTheme: null,
-};
-
 Menu.propTypes = {
-  theme: PropTypes.string,
-  setTheme: PropTypes.func,
   isModalOpen: PropTypes.bool.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
 };
