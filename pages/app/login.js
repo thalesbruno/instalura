@@ -1,5 +1,5 @@
 import React from 'react';
-import websitePageHOC from '../src/contexts/hoc';
+import websitePageHOC from '../../src/contexts/hoc';
 
 const LoginScreen = () => (
   <div>
