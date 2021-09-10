@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from './Link';
 
 import Text from './Text';
 
@@ -36,11 +37,11 @@ const Footer = (props) => (
       />
     </a>
     <Text as="p" variant="paragraph1" color="tertiary.main">
-      Orgulhosamente criado durante o
+      Criado durante o
       {' '}
-      <a href="https://www.alura.com.br/">
-        <span>Bootcamp Alura JAM Stack</span>
-      </a>
+      <Link href="https://www.alura.com.br/">
+        Bootcamp Alura JAM Stack
+      </Link>
     </Text>
   </FooterWrapper>
 );
