@@ -25,6 +25,7 @@ const TextField = ({
   name,
   value,
   onChange,
+  ...props
 }) => (
   <InputWrapper>
     <Input
@@ -33,15 +34,22 @@ const TextField = ({
       name={name}
       onChange={onChange}
       value={value}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
     />
   </InputWrapper>
 );
 
+TextField.defaultProps = {
+  value: '',
+  onChange: () => {},
+};
+
 TextField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default TextField;
