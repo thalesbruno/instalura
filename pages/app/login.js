@@ -1,58 +1,12 @@
-import React, { useContext, useState } from 'react';
-import Button from '../../src/components/common/Button';
+import React, { useContext } from 'react';
 import Text from '../../src/components/common/Text';
-import TextField from '../../src/components/forms/TextField';
 import Box from '../../src/components/layout/Box';
 import Grid from '../../src/components/layout/Grid';
 import websitePageHOC from '../../src/contexts/hoc';
 import Logo from '../../src/styles/Logo';
 import Link from '../../src/components/common/Link';
 import { WebsitePageContext } from '../../src/contexts/WebsitePageWrapper';
-
-const LoginForm = () => {
-  const [loginData, setLoginData] = useState({
-    user: '',
-    password: '',
-  });
-
-  const handleChangeLoginData = (event) => {
-    const field = event.target.getAttribute('name');
-    setLoginData({
-      ...loginData,
-      [field]: event.target.value,
-    });
-  };
-
-  return (
-    <form id="formCadastro" action="/app/profile">
-      <TextField
-        placeholder="Usuário"
-        name="user"
-        value={loginData.user}
-        onChange={handleChangeLoginData}
-      />
-      <TextField
-        placeholder="Senha"
-        name="password"
-        type="password"
-        value={loginData.password}
-        onChange={handleChangeLoginData}
-      />
-
-      <Button
-        type="submit"
-        variant="primary.main"
-        margin={{
-          xs: '0 auto',
-          md: 'initial',
-        }}
-        fullWidth
-      >
-        Entrar
-      </Button>
-    </form>
-  );
-};
+import FormLogin from '../../src/components/forms/FormLogin';
 
 const LoginScreen = () => {
   const websitePageContext = useContext(WebsitePageContext);
@@ -90,7 +44,9 @@ const LoginScreen = () => {
               <Logo size="large" />
             </Link>
           </Box>
-          <LoginForm />
+
+          <FormLogin />
+
           <Text
             variant="paragraph1"
             tag="p"
